@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import ListPage from "./components/Pages/ListPage";
+import DetailPage from "./components/Pages/DetailPage";
+import UpdatePage from "./components/Pages/UpdatePage";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      {/* / 로 들어오면 /list 로 이동 */}
+      <Route path="/" element={<Navigate to="/list" replace />} />
+      <Route path="/list" element={<ListPage />} />
+      <Route path="/detail" element={<DetailPage />} />
+      <Route path="/update" element={<UpdatePage />} />
+    </Routes>
   );
 }
-
-export default App;
